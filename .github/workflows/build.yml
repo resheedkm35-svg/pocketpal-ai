@@ -32,6 +32,13 @@ jobs:
                   "android_client_info": { "package_name": "com.pocketpalai" }
                 },
                 "api_key": [ { "current_key": "DUMMY_KEY_123" } ]
+              },
+              {
+                "client_info": {
+                  "mobilesdk_app_id": "1:123456789:android:abcdef2",
+                  "android_client_info": { "package_name": "com.pocketpalai.e2e" }
+                },
+                "api_key": [ { "current_key": "DUMMY_KEY_123" } ]
               }
             ],
             "configuration_version": "1"
@@ -57,4 +64,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: My-Own-AI-Engine
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          path: android/app/build/outputs/apk/**/*.apk
