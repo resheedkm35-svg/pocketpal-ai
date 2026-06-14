@@ -9,6 +9,14 @@ jobs:
       - name: Checkout Source Code
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Project Dependencies
+        run: npm install
+
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
@@ -29,4 +37,3 @@ jobs:
         with:
           name: My-Own-AI-Engine
           path: android/app/build/outputs/apk/debug/app-debug.apk
-
