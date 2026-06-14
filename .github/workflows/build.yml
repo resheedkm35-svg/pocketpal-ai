@@ -20,6 +20,24 @@ jobs:
       - name: Install Project Dependencies
         run: yarn install --network-timeout 1000000
 
+      - name: Create Dummy google-services.json
+        run: |
+          cat <<EOF > android/app/google-services.json
+          {
+            "project_info": { "project_number": "123456789", "project_id": "dummy-project" },
+            "client": [
+              {
+                "client_info": {
+                  "mobilesdk_app_id": "1:123456789:android:abcdef",
+                  "android_client_info": { "package_name": "com.pocketpalai" }
+                },
+                "api_key": [ { "current_key": "DUMMY_KEY_123" } ]
+              }
+            ],
+            "configuration_version": "1"
+          }
+          EOF
+
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
