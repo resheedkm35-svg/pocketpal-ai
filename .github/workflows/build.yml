@@ -12,10 +12,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
+
+      - name: Install Yarn
+        run: npm install -g yarn
 
       - name: Install Project Dependencies
-        run: npm install --legacy-peer-deps
+        run: yarn install --network-timeout 1000000
 
       - name: Set up Java
         uses: actions/setup-java@v4
